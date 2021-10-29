@@ -26,7 +26,7 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 2. Use the following two links, replacing __YOURIP__ with the IP address of your miner:
   - http://__YOURIP__/action.php?action=shell&cmd=sudo wget https://github.com/briffy/PiscesQoLDashboard/install.sh /tmp/
   - http://__YOURIP__/action.php?action=shell&cmd=sudo bash /tmp/install.sh
-3. Log in at https://__YOURIP__:
+3. Log in at https://__YOURIP__
   - Username: admin
   - Password: admin
 4. Click "Tools"
