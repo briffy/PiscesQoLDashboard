@@ -6,9 +6,11 @@ fi
 
 
 if id -nG admin | grep -qw "sudo"; then
-  wget https://github.com/briffy/PiscesQoLDashboard/releases/latest.tar.gz /tmp/latest.tar.gz
+  wget https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/latest.tar.gz -O /tmp/latest.tar.gz
   cd /tmp
+  
   if test -f latest.tar.gz; then
+    tar -xzvf latest.tar.gz
     systemctl stop apache2.service
     systemctl disable apache2.service
     systemctl stop pm2-pi.service
