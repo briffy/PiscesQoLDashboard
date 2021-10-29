@@ -112,12 +112,9 @@ if id -nG admin | grep -qw "sudo"; then
     systemctl start wifi-check.service
     systemctl start wifi-config-check.service
     systemctl start wifi-service-check.service
-
-    systemctl stop apache2.service
-    systemctl disable apache2.service
-
-    systemctl enable nginx.service
-    systemctl start nginx.service
+    
+    systemctl start install-dashboard.service
+    
     echo 'Success.'
   else
     echo 'No installation archive found.  No changes made.'
