@@ -33,3 +33,10 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 5. Click "Reset Password"
 6. Enter a secure password and click submit.
 7. Enjoy!
+
+
+## Installation Instructions ##
+
+1. Connect via SSH to your miner (either using PuTTY or open cmd and type:  ssh admin@YOURIP)
+2. Enter the admin username and the password you set.
+3. Type the following command:  sudo bash /var/dashboard/uninstall.sh
