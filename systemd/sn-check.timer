@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the serial number check once a day.
+
+[Timer]
+OnBootSec=86400
+OnUnitActiveSec=86400
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target

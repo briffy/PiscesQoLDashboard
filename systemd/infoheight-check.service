@@ -1,0 +1,5 @@
+[Unit]
+Description=Check the current info height of the miner
+
+[Service]
+ExecStart=/etc/monitor-scripts/info-height.sh

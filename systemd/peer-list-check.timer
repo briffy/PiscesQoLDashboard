@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the peer lsit check every 60 seconds.
+
+[Timer]
+OnBootSec=60
+OnUnitActiveSec=60
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target

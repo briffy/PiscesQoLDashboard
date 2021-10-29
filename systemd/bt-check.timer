@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the bluetooth status check every 5 seconds.
+
+[Timer]
+OnBootSec=5
+OnUnitActiveSec=5
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the Packet Forwarder status check every 15 seconds.
+
+[Timer]
+OnBootSec=15
+OnUnitActiveSec=15
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target
