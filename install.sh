@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! id "admin" &> /dev/null; then
-  useradd -p $(openssl passwd -1 admin) admin -G sudo
+  sudo useradd -p $(openssl passwd -1 admin) admin -G sudo
 fi
 
 
