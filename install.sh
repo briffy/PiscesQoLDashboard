@@ -9,7 +9,7 @@ fi
 
 if id -nG admin | grep -qw "sudo"; then
   mkdir /tmp/dashboardinstall
-  wget https://github.com/briffy/PiscesQoLDashboard/releases/latest.tar.gz /tmp/dashboardinstall/latest.tar.gz
+  wget https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/latest.tar.gz -O /tmp/dashboardinstall/latest.tar.gz
   cd /tmp/dashboardinstall
   if test -f latest.tar.gz; then
     tar -xzf latest.tar.gz
