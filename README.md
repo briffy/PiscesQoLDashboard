@@ -23,9 +23,8 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 ## Installation Instructions ##
 
 1. Find the internal IP address of your Pisces miner.
-2. Use the following two links, replacing __YOURIP__ with the IP address of your miner:
-  - http://__YOURIP__/action.php?action=shell&cmd=sudo wget https://github.com/briffy/PiscesQoLDashboard/install.sh /tmp/
-  - http://__YOURIP__/action.php?action=shell&cmd=sudo bash /tmp/install.sh
+2. Use the following two link, replacing __YOURIP__ with the IP address of your miner:
+  - http://__YOURIP__/action.php?action=shell&cmd=sudo wget -O https://github.com/briffy/PiscesQoLDashboard/install.sh | bash
 3. Log in at https://__YOURIP__
   - Username: admin
   - Password: admin
