@@ -1,8 +1,9 @@
 #!/bin/bash
 
 if ! id "admin" &> /dev/null; then
-  sudo su root
-  useradd -p $(openssl passwd -1 admin) admin -G sudo
+  adduser --disabled-password --gecos "" admin
+  echo admin:admin | chpasswd
+  usermod admin -g sudo
 fi
 
 
