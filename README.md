@@ -39,3 +39,9 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 1. Connect via SSH to your miner (either using PuTTY or open cmd and type:  ssh admin@YOURIP)
 2. Enter the admin username and the password you set.
 3. Type the following command:  sudo bash /var/dashboard/uninstall.sh
+
+
+## Caveats ##
+
+* It's not using jQuery or anything fancy to pull statuses on stuff.  If you click a button to enable/disable a service, manually refresh a few times until it updates.
+* You will likely get a "This site is not secure" banner when you first connect.  This is because I've enabled HTTPS by default with a self-signed certificate.  The reason it is "not secure" is because web browsers prefer certificates to be signed by an authority, not just yourself.  I promise though, HTTPS with a self-signed certificate is way more secure than standard HTTP because at least your data is being encrypted this way.
