@@ -41,6 +41,8 @@ if id -nG admin | grep -qw "sudo"; then
     chmod 775 /var/dashboard/.htpasswd
     chown root:www-data /var/dashboard
     chmod 775 /var/dashboard
+    chown root:root /var/dashboard/uninstall.sh
+    chmod 700 /var/dashboard/uninstall.sh
 
     systemctl enable bt-check.timer
     systemctl enable bt-service-check.timer
