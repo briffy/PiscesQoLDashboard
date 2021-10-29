@@ -2,7 +2,7 @@
 
 This is a replacement dashboard for the Pisces Helium Miner.
 
-The dashboard that ships with the Pisces P100D has a number of security and performance issues.  The main things this dashboard fixes are:
+The dashboard that ships with the Pisces P100 has a number of security and performance issues.  The main things this dashboard fixes are:
 * Lack of any authentication on the frontend.
 * Removal of ability to run root level code from the web server.
 * Changes to the way data is polled so that the dashboard doesn't hang for ~30 seconds while waiting for GPS/Bluetooth/Helium miner to report back statuses.
