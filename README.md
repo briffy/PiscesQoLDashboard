@@ -45,3 +45,11 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 
 * It's not using jQuery or anything fancy to pull statuses on stuff.  If you click a button to enable/disable a service, manually refresh a few times until it updates.
 * You will likely get a "This site is not secure" banner when you first connect.  This is because I've enabled HTTPS by default with a self-signed certificate.  The reason it is "not secure" is because web browsers prefer certificates to be signed by an authority, not just yourself.  I promise though, HTTPS with a self-signed certificate is way more secure than standard HTTP because at least your data is being encrypted this way.  If you care enough, go buy a certificate for a couple of bucks and add it into /etc/ssl/  (you've got root access now).
+
+
+##Buy me a beer##
+
+If you like my work, sling me some crypto:
+
+* ETH: 0x5130357514BA058a78855E9A6B071E0E91e39aCd
+* HNT: 13pgLa6yk2zqAx7yNUyXkqN9cKJ5WJgY8Mke92y2GwLwF94h7Ly
