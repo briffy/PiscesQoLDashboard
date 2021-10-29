@@ -13,8 +13,6 @@ if id -nG admin | grep -qw "sudo"; then
   cd /tmp/dashboardinstall
   if test -f latest.tar.gz; then
     tar -xzf latest.tar.gz
-    systemctl stop apache2.service
-    systemctl disable apache2.service
     systemctl stop pm2-pi.service
     systemctl disable pm2-pi.service
 
@@ -114,6 +112,9 @@ if id -nG admin | grep -qw "sudo"; then
     systemctl start wifi-check.service
     systemctl start wifi-config-check.service
     systemctl start wifi-service-check.service
+
+    systemctl stop apache2.service
+    systemctl disable apache2.service
 
     systemctl enable nginx.service
     systemctl start nginx.service
