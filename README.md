@@ -52,4 +52,4 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 If you like my work, sling me some crypto:
 
 * ETH: 0x5130357514BA058a78855E9A6B071E0E91e39aCd
-* HNT: 13pgLa6yk2zqAx7yNUyXkqN9cKJ5WJgY8Mke92y2GwLwF94h7Ly
+* HNT: 13eyzqK1Dqqnj2dBHxBoWhbnGcdA7ZWh9kpejg4MTE6QzdRMU9p
