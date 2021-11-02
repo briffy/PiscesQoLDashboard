@@ -1,9 +1,9 @@
 [Unit]
-Description=Scrape the pubkey every day
+Description=Scrape the pubkey every half hour
 
 [Timer]
-OnBootSec=86400
-OnUnitActiveSec=86400
+OnBootSec=1800
+OnUnitActiveSec=1800
 AccuracySec=1ms
 
 [Install]
