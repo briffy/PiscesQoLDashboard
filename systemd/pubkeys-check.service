@@ -1,5 +1,0 @@
-[Unit]
-Description=Scrapes public key
-
-[Service]
-ExecStart=/etc/monitor-scripts/pubkeys.sh

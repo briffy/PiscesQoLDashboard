@@ -1,5 +1,0 @@
-[Unit]
-Description=Local IP checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/local-ip.sh

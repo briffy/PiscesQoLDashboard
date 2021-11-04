@@ -1,5 +1,0 @@
-[Unit]
-Description=Packet Forwarder service start/stop flag checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/service-pf.sh

@@ -1,5 +1,0 @@
-[Unit]
-Description=WiFi Status checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/wifi-check.sh
