@@ -56,6 +56,9 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.1.2
+  * Fixed bug with docker updater.  If no config has been downloaded by Pisces (either updates disabled or haven't run) then it would stop the docker from being enabled.  Now it will use the current config if no new config from Pisces is found.
+
 - v0.1.1
   * Added functionality: clear blockchain data, update miner docker and update dashboard.
   * A few quality of life enhancements, tweaking of minor bugs and updating styles.
