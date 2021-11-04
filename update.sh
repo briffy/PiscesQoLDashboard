@@ -8,6 +8,7 @@ fi
 
 if id -nG admin | grep -qw "sudo"; then
   rm -rf /tmp/latest.tar.gz
+  rm -rf /tmp/dashboardinstall
   wget --no-cache https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/latest.tar.gz -O /tmp/latest.tar.gz
   cd /tmp
   if test -f latest.tar.gz; then
