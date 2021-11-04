@@ -56,6 +56,9 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.1.3
+  * Changed the miner updater to pull only the latest GA versions (https://en.wikipedia.org/wiki/Software_release_life_cycle#General_availability_(GA))
+
 - v0.1.2
   * Fixed bug with docker updater.  If no config has been downloaded by Pisces (either updates disabled or haven't run) then it would stop the docker from being enabled.  Now it will use the current config if no new config from Pisces is found.
 
