@@ -38,7 +38,7 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 
 As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1.0 then you will have to manually update this one.  Follow the instructions below:
 
-1. Log in via SSH (either PuTTY or click start > type "cmd" and press enter, then type "ssh admin@your-miner-ip".
+1. Log in via SSH (either PuTTY or click start > type "cmd" and press enter, then type "ssh admin@your-miner-ip").
 2. Run the following commands:
    - wget https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/update.sh
    - sudo bash update.sh
