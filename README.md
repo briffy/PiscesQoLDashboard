@@ -34,6 +34,16 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 7. Enjoy!
 
 
+## Updating ##
+
+As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1.0 then you will have to manually update this one.  Follow the instructions below:
+
+1. Log in via SSH (either PuTTY or click start > type "cmd" and press enter, then type "ssh admin@your-miner-ip".
+2. Run the following commands:
+   - wget https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/update.sh
+   - sudo bash update.sh
+
+
 ## Removal Instructions ##
 
 1. Connect via SSH to your miner (either using PuTTY or open cmd and type:  ssh admin@YOURIP)
@@ -46,6 +56,12 @@ Installing this script creates a __sudo user__ called "__admin__" with the passw
 * It's not using jQuery or anything fancy to pull statuses on stuff.  If you click a button to enable/disable a service, manually refresh a few times until it updates.
 * You will likely get a "This site is not secure" banner when you first connect.  This is because I've enabled HTTPS by default with a self-signed certificate.  The reason it is "not secure" is because web browsers prefer certificates to be signed by an authority, not just yourself.  I promise though, HTTPS with a self-signed certificate is way more secure than standard HTTP (don't take my word for it, Google "https vs http") because at least your data is being encrypted this way.  If you care enough, go buy a certificate for a couple of bucks and add it into /etc/ssl/  (you've got root access now).
 
+
+## Change Log ##
+- v0.1.1
+  * Added functionality: clear blockchain data, update miner docker and update dashboard.
+  * A few quality of life enhancements, tweaking of minor bugs and updating styles.
+  * Merged fix for remote IP lookup.
 
 ## Buy me a beer ##
 
