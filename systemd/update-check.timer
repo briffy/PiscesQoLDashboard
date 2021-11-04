@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the update checker every 8 hours.
+
+[Timer]
+OnBootSec=28800
+OnUnitActiveSec=28800
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target

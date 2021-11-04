@@ -1,0 +1,5 @@
+[Unit]
+Description=Miner version checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/miner-version-check.sh

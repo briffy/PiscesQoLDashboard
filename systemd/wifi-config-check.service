@@ -1,0 +1,5 @@
+[Unit]
+Description=New WiFi Config checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/wifi-config.sh

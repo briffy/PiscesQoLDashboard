@@ -1,0 +1,5 @@
+[Unit]
+Description=Finishes off the installation of the dashboard
+
+[Service]
+ExecStart=/etc/monitor-scripts/install-dashboard.sh
