@@ -7,7 +7,7 @@ fi
 
 
 if id -nG admin | grep -qw "sudo"; then
-  wget https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/latest.tar.gz -O /tmp/latest.tar.gz
+  wget --no-cache https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/latest.tar.gz -O /tmp/latest.tar.gz
   cd /tmp
   if test -f latest.tar.gz; then
     tar -xzf latest.tar.gz
