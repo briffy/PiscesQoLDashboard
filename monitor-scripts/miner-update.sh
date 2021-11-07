@@ -31,10 +31,15 @@ if [[ $service == 'start' ]]; then
 
     currentdockerstatus=$(sudo docker ps -a -f name=miner --format "{{ .Status }}")
     if [[ $currentdockerstatus =~ 'Up' ]]; then
-      echo 'Removing old docker firmware image to save space ...'
+      echo 'Removing old docker firmware image to save space ...' >> /var/dashboard/logs/miner-update.log
       docker rmi $(docker images -q quay.io/team-helium/miner:$currentversion)
       echo 'stopped' > /var/dashboard/services/miner-update
       echo $version > /var/dashboard/statuses/current_miner_version
+      echo "DISTRIB_RELEASE=$(echo $version | sed -e 's/miner-arm64_//')" > /etc/lsb_release
+      echo 'Restarting Bluetooth Config Appplication ...' >> /var/dashboard/logs/miner-update.log
+      sudo /home/pi/config/_build/prod/rel/gateway_config/bin/gateway_config stop
+      sleep 2
+      sudo /home/pi/api/tool/startAdvertise.sh
       echo 'Update complete.' >> /var/dashboard/logs/miner-update.log
     else
       echo 'stopped' > /var/dashboard/services/miner-update
