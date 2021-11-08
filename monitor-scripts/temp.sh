@@ -1,8 +1,8 @@
 #!/bin/bash
 
-data=$(sensors cpu_thermal-virtual-0 | grep temp1)
+data=$(vcgencmd measure_temp)
 
-if [[ $data =~ temp1:(.*) ]]; then
+if [[ $data =~ temp=(.*) ]]; then
   match="${BASH_REMATCH[1]}"
 fi
 
