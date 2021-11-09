@@ -26,8 +26,10 @@ if id -nG admin | grep -qw "sudo"; then
     cp nginx/certs/nginx-selfsigned.crt /etc/ssl/certs/
     cp nginx/certs/nginx-selfsigned.key /etc/ssl/private/
     cp nginx/snippets/* /etc/nginx/snippets/
-    cp nginx/default /etc/nginx/sites-enabled/
-    cp nginx/.htpasswd /var/dashboard/.htpasswd
+    cp nginx/default /etc/nginx/sites-enabled
+    if ! test -f /var/dashboard/.htpasswd; then
+      cp nginx/.htpasswd /var/dashboard/.htpasswd
+    fi
     cp nginx/dhparam.pem /etc/ssl/certs/dhparam.pem
     cp systemd/* /etc/systemd/system/
 
