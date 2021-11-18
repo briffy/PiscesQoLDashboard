@@ -15,7 +15,7 @@ if id -nG admin | grep -qw "sudo"; then
     cd dashboardinstall
     systemctl stop pm2-pi.service
     systemctl disable pm2-pi.service
-
+    apt-get update
     apt-get --assume-yes install nginx php-fpm php7.3-fpm
 
     mkdir /var/dashboard
