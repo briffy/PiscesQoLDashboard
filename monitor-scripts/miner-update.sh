@@ -28,7 +28,7 @@ if [[ $service == 'start' ]]; then
       docker rmi $(docker images -q quay.io/team-helium/miner:$currentversion)
       echo 'stopped' > /var/dashboard/services/miner-update
       echo $version > /var/dashboard/statuses/current_miner_version
-      echo "DISTRIB_RELEASE=$(echo $version | sed -e 's/miner-arm64_//')" > /etc/lsb_release
+      echo "DISTRIB_RELEASE=$(echo $version | sed -e 's/miner-arm64_//' | sed -e 's/_GA//')" > /etc/lsb_release
       echo 'Update complete.' >> /var/dashboard/logs/miner-update.log
     else
       echo 'stopped' > /var/dashboard/services/miner-update
