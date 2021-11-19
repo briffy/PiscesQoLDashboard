@@ -14,20 +14,13 @@ if [[ $service == 'start' ]]; then
     mkdir /home/pi/hnt/miner/configs/previous_configs
     currentversion=$(docker ps -a -f name=miner --format "{{ .Image }}" | grep -Po 'miner: *.+' | sed 's/miner://')
     cp "$currentconfig" "/home/pi/hnt/miner/configs/previous_configs/$currentversion.config" >> /var/dashboard/logs/miner-update.log
-    echo 'Acquiring latest config from Pisces...' >> /var/dashboard/logs/miner-update.log
-    firmware=$(ls /home/pi/hnt/script/update | sort -n | tail -1)
-    if [[ $firmware ]]; then
-      echo "Version: $firmware" >> /var/dashboard/logs/miner-update.log
-      cp "/home/pi/hnt/script/update/$firmware/sys.config" "/home/pi/hnt/miner/configs/sys.config" >> /var/dashboard/logs/miner-update.log
-    else
-      echo 'No Pisces config found.  Using current.' >> /var/dashboard/logs/miner-update.log
-      cp "$currentconfig" "/home/pi/hnt/miner/configs/sys.config"
-    fi
-      echo 'Removing currently running docker...' >> /var/dashboard/logs/miner-update.log
-      docker rm miner
-      echo 'Acquiring and starting latest docker version...' >> /var/dashboard/logs/miner-update.log
-      docker image pull quay.io/team-helium/miner:$version >> /var/dashboard/logs/miner-update.log
-      docker run -d --init --ulimit nofile=64000:64000 --env REGION_OVERRIDE=EU868 --restart always --publish 1680:1680/udp --publish 44158:44158/tcp --name miner --mount type=bind,source=/home/pi/hnt/miner,target=/var/data --mount type=bind,source=/home/pi/hnt/miner/log,target=/var/log/miner --device /dev/i2c-0 --net host --privileged -v /var/run/dbus:/var/run/dbus --mount type=bind,source=/home/pi/hnt/miner/configs/sys.config,target=/config/sys.config quay.io/team-helium/miner:$version >> /var/dashboard/logs/miner-update.log
+    echo 'Acquiring latest Helium config from GitHub...' >> /var/dashboard/logs/miner-update.log
+    wget https://raw.githubusercontent.com/helium/miner/master/config/sys.config -O /home/pi/hnt/miner/configs/sys.config   
+    echo 'Removing currently running docker...' >> /var/dashboard/logs/miner-update.log
+    docker rm miner
+    echo 'Acquiring and starting latest docker version...' >> /var/dashboard/logs/miner-update.log
+    docker image pull quay.io/team-helium/miner:$version >> /var/dashboard/logs/miner-update.log
+    docker run -d --init --ulimit nofile=64000:64000 --restart always --publish 1680:1680/udp --publish 44158:44158/tcp --name miner --mount type=bind,source=/home/pi/hnt/miner,target=/var/data --mount type=bind,source=/home/pi/hnt/miner/log,target=/var/log/miner --device /dev/i2c-0 --net host --privileged -v /var/run/dbus:/var/run/dbus --mount type=bind,source=/home/pi/hnt/miner/configs/sys.config,target=/config/sys.config quay.io/team-helium/miner:$version >> /var/dashboard/logs/miner-update.log
 
     currentdockerstatus=$(sudo docker ps -a -f name=miner --format "{{ .Status }}")
     if [[ $currentdockerstatus =~ 'Up' ]]; then
