@@ -15,7 +15,7 @@ if [[ $service == 'start' ]]; then
     currentversion=$(docker ps -a -f name=miner --format "{{ .Image }}" | grep -Po 'miner: *.+' | sed 's/miner://')
     cp "$currentconfig" "/home/pi/hnt/miner/configs/previous_configs/$currentversion.config" >> /var/dashboard/logs/miner-update.log
     echo 'Acquiring latest Helium config from GitHub...' >> /var/dashboard/logs/miner-update.log
-    wget https://raw.githubusercontent.com/helium/miner/master/config/sys.config -O /home/pi/hnt/miner/configs/sys.config >> /var/dashboard/logs/miner-update.log
+    wget https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/sys.config -O /home/pi/hnt/miner/configs/sys.config >> /var/dashboard/logs/miner-update.log
     echo 'Removing currently running docker...' >> /var/dashboard/logs/miner-update.log
     docker rm miner
     echo 'Acquiring and starting latest docker version...' >> /var/dashboard/logs/miner-update.log
