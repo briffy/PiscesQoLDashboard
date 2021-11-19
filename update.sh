@@ -11,8 +11,6 @@ if id -nG admin | grep -qw "sudo"; then
   rm -rf /tmp/dashboardinstall
   wget --no-cache https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/latest.tar.gz -O /tmp/latest.tar.gz
   cd /tmp
-  rm -rf latest.tar.gz
-  rm -rf dashboardinstall
   if test -f latest.tar.gz; then
     tar -xzf latest.tar.gz
     cd dashboardinstall
