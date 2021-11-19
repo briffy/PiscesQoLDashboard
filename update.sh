@@ -40,9 +40,12 @@ if id -nG admin | grep -qw "sudo"; then
         systemctl daemon-reload >> /var/dashboard/logs/dashboard-update.log
       done
     echo 'Success.' >> /var/dashboard/logs/dashboard-update.log
+    echo 'stopped' > /var/dashboard/services/dashboard-update
   else
     echo 'No installation archive found.  No changes made.' >> /var/dashboard/logs/dashboard-update.log
+    echo 'stopped' > /var/dashboard/services/dashboard-update
   fi
 else
   echo 'Error checking if admin user exists.  No changes made.' >> /var/dashboard/logs/dashboard-update.log
+  echo 'stopped' > /var/dashboard/services/dashboard-update
 fi
