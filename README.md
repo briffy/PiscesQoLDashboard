@@ -56,6 +56,11 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.1.5
+  * Minor quality of life fixes.
+  * Updated to use wget instead of curl to avoid DDoS issues with Helium API.
+  * Changed miner updater to pull the latest sys config from this github (updated from Helium miner gitgub and modified for use with the Pisces:https://github.com/helium/miner/blob/master/config/sys.config) 
+
 - v0.1.4
   * If the miner docker has already locked up due to blockchain corruption then docker stop isn't aggressive enough to stop it.  This has been changed to docker kill and I have also changed the method for removing the files as when it grows past a certain point, rm cannot deal with it in one hit.
 
