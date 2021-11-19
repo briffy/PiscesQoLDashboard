@@ -56,6 +56,9 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.1.6
+  * Fixed possible bug with "\_GA" being appended to the version string.
+  
 - v0.1.5
   * Minor quality of life fixes.
   * Updated to use wget instead of curl to avoid DDoS issues with Helium API.
