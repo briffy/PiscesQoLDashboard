@@ -12,6 +12,18 @@ $info['SN'] = trim(file_get_contents("/var/dashboard/statuses/sn"));
 //$info['SN'] = "10000080081355"
 $info['Version'] = trim(file_get_contents("/var/dashboard/version"));
 $info['Update'] = trim(file_get_contents("/var/dashboard/update"));
+if (empty($info['CurrentBlockHeight']))
+{
+        $sync = '<li><p style="color:#FE2D00">Helium API Error</p></li><br />';
+}
+elseif($info['MinerBlockHeight'] >= $info['CurrentBlockHeight'])
+{
+        $sync = '<li><p style="color:#2BFF97">Fully Synced!</p></li><br />';
+}
+else
+{
+        $sync = '<li><p style="color:yellow">Syncing</p></li><br />';
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -94,8 +106,8 @@ $info['Update'] = trim(file_get_contents("/var/dashboard/update"));
 				<span class="icon-grid"></span>
 				<h3>BlockChain Info</h3>
 				<ul id="info_height_data">
-					<?php 
-					echo '<li>Miner Height: '.$info['MinerBlockHeight'].'</li><li>Live Height: '.$info['CurrentBlockHeight'].'</li><li>Online Status: '.$info['OnlineStatus'].'</li>'; ?>
+					<?php
+					echo $sync.'<li>Miner Height: '.$info['MinerBlockHeight'].'</li><li>Live Height: '.$info['CurrentBlockHeight'].'</li><li>Online Status: '.$info['OnlineStatus'].'</li>'; ?>
 				</ul>
 			</div>
 
