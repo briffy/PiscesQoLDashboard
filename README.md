@@ -56,6 +56,9 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.1.7
+  * Fixed the dashboard updater so it doesn't nuke the logs during update and avoids any caching issues.
+ 
 - v0.1.6
   * Fixed possible bug with "\_GA" being appended to the version string.
   
