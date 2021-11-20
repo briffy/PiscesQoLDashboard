@@ -1,5 +1,0 @@
-[Unit]
-Description=Packet Forwarder checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/packet-forwarder.sh

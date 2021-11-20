@@ -1,5 +1,0 @@
-[Unit]
-Description=Reboot flag checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/reboot-check.sh
