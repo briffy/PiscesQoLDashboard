@@ -1,51 +1,32 @@
 #!/bin/bash
-if ! id "admin" &> /dev/null; then
-  adduser --disabled-password --gecos "" admin
-  echo admin:admin | chpasswd
-  usermod admin -g sudo
-fi
-
-
-if id -nG admin | grep -qw "sudo"; then
-  rm -rf /tmp/latest.tar.gz
-  rm -rf /tmp/dashboardinstall
-  echo 'Downloading latest release...' > /var/dashboard/logs/dashboard-update.log
-  wget --no-cache https://raw.githubusercontent.com/briffy/PiscesQoLDashboard/main/latest.tar.gz -O /tmp/latest.tar.gz
-  cd /tmp
-  if test -f latest.tar.gz; then
-    echo 'Extracting contents...' >> /var/dashboard/logs/dashboard-update.log
-    tar -xzf latest.tar.gz
-    cd dashboardinstall
-    rm dashboard/logs/dashboard-update.log
-    cp -r dashboard/* /var/dashboard/
-    cp monitor-scripts/* /etc/monitor-scripts/
-    cp systemd/* /etc/systemd/system/
-    chmod 755 /etc/monitor-scripts/*
-    chown root:www-data /var/dashboard/services/*
-    chown root:www-data /var/dashboard/statuses/*
-    chmod 775 /var/dashboard/services/*
-    chmod 775 /var/dashboard/statuses/*
-    chown root:www-data /var/dashboard
-    chmod 775 /var/dashboard
-
-    systemctl daemon-reload
-    echo 'Starting and enabling services...' >> /var/dashboard/logs/dashboard-update.log
-    FILES="systemd/*.timer"
-    for f in $FILES;
-      do
-        name=$(echo $f | sed 's/.timer//' | sed 's/systemd\///')
-        systemctl start $name.timer >> /var/dashboard/logs/dashboard-update.log
-        systemctl enable $name.timer >> /var/dashboard/logs/dashboard-update.log
-        systemctl start $name.service >> /var/dashboard/logs/dashboard-update.log
-        systemctl daemon-reload >> /var/dashboard/logs/dashboard-update.log
-      done
-    echo 'Success.' >> /var/dashboard/logs/dashboard-update.log
-    echo 'stopped' > /var/dashboard/services/dashboard-update
-  else
-    echo 'No installation archive found.  No changes made.' >> /var/dashboard/logs/dashboard-update.log
-    echo 'stopped' > /var/dashboard/services/dashboard-update
-  fi
-else
-  echo 'Error checking if admin user exists.  No changes made.' >> /var/dashboard/logs/dashboard-update.log
-  echo 'stopped' > /var/dashboard/services/dashboard-update
-fi
+systemctl disable bt-check.timer
+systemctl disable bt-service-check.timer
+systemctl disable clear-blockchain-check.timer
+systemctl disable cpu-check.timer
+systemctl disable external-ip-check.timer
+systemctl disable fastsync-check.timer
+systemctl disable gps-check.timer
+systemctl disable helium-status-check.timer
+systemctl disable infoheight-check.timer
+systemctl disable local-ip-check.timer 
+systemctl disable miner-check.timer
+systemctl disable miner-service-check.timer 
+systemctl disable miner-version-check.timer
+systemctl disable password-check.timer
+systemctl disable peer-list-check.timer
+systemctl disable pf-check.timer
+systemctl disable pf-service-check.timer
+systemctl disable pubkeys-check.timer
+systemctl disable reboot-check.timer
+systemctl disable sn-check.timer
+systemctl disable temp-check.timer
+systemctl disable update-check.timer
+systemctl disable update-dashboard-check.timer
+systemctl disable update-miner-check.timer
+systemctl disable wifi-check.timer
+systemctl disable wifi-config-check.timer
+systemctl disable wifi-service-check.timer
+deluser admin
+systemctl enable apache2
+systemctl disable nginx
+reboot
