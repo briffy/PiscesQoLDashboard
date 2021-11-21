@@ -119,13 +119,14 @@ else
 		</section>
 
 		<footer>
-			<a href="https://github.com/briffy/PiscesQoLDashboard">Dashboard</a> Version: <?php echo $info['Version'];
-			if($info['Version'] != $info['Update'])
-			{
-				echo ' - <a href="https://github.com/briffy/PiscesQoLDashboard" title="Update Releases">Update Available - '.$info['Update'].'</a>';
-			}
-			?>
-		</footer>
+            <a href="https://github.com/shrykez/PiscesQoLDashboard">Dashboard</a> Version: <?php echo $info['Version'];
+                if($info['Version'] != $info['Update'])
+                {
+                	echo '<br />Built and designed to near perfection by <span style="color:#5DADE2">Briffy</span><br />Perfected with the Ultimate Super Sick Sync Display by <span style="color:#F1948A">ShrykeZ</span>';
+                    //echo ' - <a href="https://github.com/briffy/PiscesQoLDashboard" title="Update Releases">Update Available - '.$info['Update'].'</a>';
+                }
+            ?>
+        </footer>
 		<br class="clear" />
 	</div>
 </body>
