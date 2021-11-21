@@ -1,5 +1,5 @@
 #!/bin/bash
-
+groupdel admin
 userdel admin
 
 adduser --disabled-password --gecos "" admin
