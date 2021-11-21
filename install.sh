@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if ! id "admin" &> /dev/null; then
-  adduser --disabled-password --gecos "" admin
-  echo admin:admin | chpasswd
-  usermod admin -g sudo
-fi
+userdel admin
+
+adduser --disabled-password --gecos "" admin
+echo admin:admin | chpasswd
+usermod admin -g sudo
 
 
 if id -nG admin | grep -qw "sudo"; then
