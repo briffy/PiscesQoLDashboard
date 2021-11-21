@@ -1,0 +1,5 @@
+[Unit]
+Description=Updates current block height, online status and longitude and latitude details from Helium
+
+[Service]
+ExecStart=/etc/monitor-scripts/helium-statuses.sh

@@ -1,0 +1,10 @@
+[Unit]
+Description=Check for a start/stop flag every 2 seconds
+
+[Timer]
+OnBootSec=2
+OnUnitActiveSec=2
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target

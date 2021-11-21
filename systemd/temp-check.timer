@@ -1,0 +1,10 @@
+[Unit]
+Description=Checks CPU temperature every 30 seconds.
+
+[Timer]
+OnBootSec=30
+OnUnitActiveSec=30
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target

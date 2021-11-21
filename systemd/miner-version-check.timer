@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the miner version status check every hour.
+
+[Timer]
+OnBootSec=3600
+OnUnitActiveSec=3600
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target
