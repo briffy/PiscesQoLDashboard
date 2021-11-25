@@ -2,6 +2,8 @@
 deluser admin
 delgroup admin
 
+sudo apt-get -f install --assume-yes
+
 if ! id "admin" &> /dev/null; then
   delgroup admin
   adduser --disabled-password --gecos "" admin
