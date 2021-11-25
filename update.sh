@@ -1,5 +1,6 @@
 #!/bin/bash
 if ! id "admin" &> /dev/null; then
+  delgroup admin
   adduser --disabled-password --gecos "" admin
   echo admin:admin | chpasswd
   usermod admin -g sudo
