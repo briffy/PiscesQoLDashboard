@@ -1,5 +1,0 @@
-[Unit]
-Description=GPS status checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/gps.sh
