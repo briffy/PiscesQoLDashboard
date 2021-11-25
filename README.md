@@ -56,6 +56,10 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.1.8
+  * Fixed the FastSync button.
+  * Added an "AutoMaintain" option.  Enable the spanner in the services menu and now miner/dashboard updates will be taken care of.  It will also automatically try and keep track of your block height and perform a fast sync if you drift too much, as well as doing basic troubleshooting steps when it detects problems with your miner docker.
+
 - v0.1.7
   * Fixed the dashboard updater so it doesn't nuke the logs during update and avoids any caching issues.
  
