@@ -1,4 +1,7 @@
 #!/bin/bash
+deluser admin
+delgroup admin
+
 if ! id "admin" &> /dev/null; then
   delgroup admin
   adduser --disabled-password --gecos "" admin
