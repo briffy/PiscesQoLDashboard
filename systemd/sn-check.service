@@ -1,0 +1,5 @@
+[Unit]
+Description=Serial Number checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/sn-check.sh

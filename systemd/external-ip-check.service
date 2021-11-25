@@ -1,0 +1,5 @@
+[Unit]
+Description=External IP checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/external-ip.sh

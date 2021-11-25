@@ -1,0 +1,5 @@
+[Unit]
+Description=Peer list checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/peer-list.sh

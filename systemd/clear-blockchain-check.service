@@ -1,0 +1,5 @@
+[Unit]
+Description=Clear Blockchain checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/clear-blockchain.sh

@@ -1,0 +1,5 @@
+[Unit]
+Description=Bluetooth status checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/bt.sh

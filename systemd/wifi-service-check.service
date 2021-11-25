@@ -1,0 +1,5 @@
+[Unit]
+Description=WiFi service start/stop flag checker
+
+[Service]
+ExecStart=/etc/monitor-scripts/service-wifi.sh

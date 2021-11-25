@@ -1,0 +1,10 @@
+[Unit]
+Description=Scrape info from Helium API every 2 minutes
+
+[Timer]
+OnBootSec=120
+OnUnitActiveSec=120
+AccuracySec=1ms
+
+[Install]
+WantedBy=timers.target
