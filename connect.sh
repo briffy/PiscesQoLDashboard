@@ -1,4 +1,5 @@
 #!/bin/bash
+apt-get install dnsutils 
 server=$(nslookup seed.helium.io | grep "Address: " | sed "s/Address: //")
 
 for s in $server; do
