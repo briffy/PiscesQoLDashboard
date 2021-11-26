@@ -59,6 +59,7 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 - v0.1.9
   * Added a "Logs" section.
   * Modified the miner update docker run command to add region override and change the port bindings to try and alleviate low beacon/challenge issues, **running a miner update is recommended.**
+  * Merged Shrykez sync checker.
  
 - v0.1.8
   * Fixed the FastSync button.
