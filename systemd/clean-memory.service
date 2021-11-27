@@ -1,5 +1,0 @@
-[Unit]
-Description=Memory cleanup 
-
-[Service]
-ExecStart=/etc/monitor-scripts/clean-memory.sh

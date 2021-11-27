@@ -1,5 +1,0 @@
-[Unit]
-Description=CPU Utilization checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/cpu.sh

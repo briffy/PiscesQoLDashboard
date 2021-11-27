@@ -1,5 +1,0 @@
-[Unit]
-Description=AutoMaintain checker
-
-[Service]
-ExecStart=/etc/monitor-scripts/auto-maintain.sh
