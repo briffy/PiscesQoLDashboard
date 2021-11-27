@@ -60,6 +60,7 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
   * Added a seed node smasher into the automaintain.  This digs and connects to the Helium seed nodes every hour, hopefully help with low activity on the blockchain.  Or it'll DDoS the seed nodes.  Let's find out.
   * Changed the sync status script to be less sensitive (THANKS SHRYKEZ).
   * Modified the blockchain clear to check for any status other than "Up" instead of specifically looking for the "exited" status.
+  * Changed log files to be in reverse order.
   
 - v0.1.9
   * Added a "Logs" section.
