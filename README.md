@@ -56,6 +56,11 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.2.0
+  * Added a seed node smasher into the automaintain.  This digs and connects to the Helium seed nodes every hour, hopefully help with low activity on the blockchain.  Or DDoS the seed nodes
+  * Changed the sync status script to be less sensitive (THANKS SHRYKEZ).
+  * Modified the blockchain clear to check for any status other than "Up" instead of specifically looking for the "exited" status.
+  
 - v0.1.9
   * Added a "Logs" section.
   * Modified the miner update docker run command to add region override and change the port bindings to try and alleviate low beacon/challenge issues, **running a miner update is recommended.**
