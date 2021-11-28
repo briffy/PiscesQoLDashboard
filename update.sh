@@ -20,7 +20,13 @@ if id -nG admin | grep -qw "sudo"; then
     tar -xzf latest.tar.gz
     cd dashboardinstall
     rm dashboard/logs/dashboard-update.log
-    rm dashboard/services/*
+    
+    for f in dashboard/services/*; do
+      if ! test -f /var/$f; then
+        cp $f /var/dashboard/services
+      fi
+    done
+    
     rm dashboard/statuses/*
     cp -r dashboard/* /var/dashboard/
     cp monitor-scripts/* /etc/monitor-scripts/
