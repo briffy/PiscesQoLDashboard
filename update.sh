@@ -27,9 +27,29 @@ if id -nG admin | grep -qw "sudo"; then
       fi
     done
     
-    rm dashboard/statuses/*
+    for f in dashboard/statuses/*; do
+      if ! test -f /var/$f; then
+        cp $f /var/dashboard/statuses
+      fi
+    done
+    
+    for f in dashboard/logs/*; do
+      if ! test -f /var/$f; then
+        cp $f /var/dashboard/logs
+      fi
+    done
+    
+    rm -rf dashboard/services/*
+    rm -rf dashboard/statuses/*
+    rm -rf dashboard/logs/*
+    
+    for f in monitor-scripts/*; do
+      if ! test -f /etc/$f; then
+        cp $f /etc/monitor-scripts
+      fi
+    done
+    
     cp -r dashboard/* /var/dashboard/
-    cp monitor-scripts/* /etc/monitor-scripts/
     cp systemd/* /etc/systemd/system/
     chmod 755 /etc/monitor-scripts/*
     chown root:www-data /var/dashboard/services/*
