@@ -56,6 +56,12 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.2.1
+  * Removed seed connector from the auto-maintain script.  Seems more and more like a Helium issue every day and no amount of smashing is going to fix it (https://github.com/helium/miner/issues/1205)
+  * Fixed faulty logic with sync checker.
+  * Split auto-maintain and auto-update into separate functions.
+  * Removed an option in the miner update that may cause problems for the US based miners that are starting to appear.
+  
 - v0.2.0
   * Added a seed node smasher into the automaintain.  This digs and connects to the Helium seed nodes every hour, hopefully help with low activity on the blockchain.  Or it'll DDoS the seed nodes.  Let's find out.
   * Changed the sync status script to be less sensitive (THANKS SHRYKEZ).
