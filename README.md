@@ -57,7 +57,7 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 ## Change Log ##
 - v0.2.2
-  * Potential fix for miner height not displaying correctly and causing it show as perpetually syncing (thanks to fraggy2k).
+  * Potential fix for miner height not displaying correctly and causing it to show as perpetually syncing (thanks to fraggy2k).
   * Modified witness log output to better capture the full witness event.
   * Added uptime to the home screen.
   
