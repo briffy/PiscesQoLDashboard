@@ -57,7 +57,7 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 ## Change Log ##
 - v0.2.4
-  * Removed test miner version locker from update script (bug).
+  * Fixed bug introduced in previous release that would lock the miner update to the latest non GA version.
 
 - v0.2.3
   * Actually put ALL the fixes in from the previous update this time...
