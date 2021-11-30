@@ -56,6 +56,11 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.2.2
+  * Potential fix for miner height not displaying correctly (and causing it show as perpetually syncing).
+  * Modified witness log output to better capture the full witness event.
+  * Added uptime to the home screen.
+  
 - v0.2.1
   * Removed seed connector from the auto-maintain script.  Seems more and more like a Helium issue every day and no amount of smashing is going to fix it (https://github.com/helium/miner/issues/1205)
   * Fixed faulty logic with sync checker.
