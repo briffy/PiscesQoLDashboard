@@ -43,12 +43,7 @@ if id -nG admin | grep -qw "sudo"; then
     rm -rf dashboard/statuses/*
     rm -rf dashboard/logs/*
     
-    for f in monitor-scripts/*; do
-      if ! test -f /etc/$f; then
-        cp $f /etc/monitor-scripts
-      fi
-    done
-    
+    cp monitor-scripts/* /etc/monitor-scripts/   
     cp -r dashboard/* /var/dashboard/
     cp systemd/* /etc/systemd/system/
     chmod 755 /etc/monitor-scripts/*
