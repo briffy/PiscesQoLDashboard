@@ -53,8 +53,7 @@ if id -nG admin | grep -qw "sudo"; then
     chmod 775 /var/dashboard/statuses/*
     chown root:www-data /var/dashboard
     chmod 775 /var/dashboard
-
-    systemctl daemon-reload
+    
     echo 'Starting and enabling services...' >> /var/dashboard/logs/dashboard-update.log
     FILES="systemd/*.timer"
     for f in $FILES;
@@ -65,6 +64,7 @@ if id -nG admin | grep -qw "sudo"; then
         systemctl start $name.service >> /var/dashboard/logs/dashboard-update.log
         systemctl daemon-reload >> /var/dashboard/logs/dashboard-update.log
       done
+    systemctl daemon-reload
     bash /etc/monitor-scripts/pubkeys.sh
     echo 'Success.' >> /var/dashboard/logs/dashboard-update.log
     echo 'stopped' > /var/dashboard/services/dashboard-update
