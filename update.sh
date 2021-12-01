@@ -42,7 +42,7 @@ if id -nG admin | grep -qw "sudo"; then
     rm -rf dashboard/services/*
     rm -rf dashboard/statuses/*
     rm -rf dashboard/logs/*
-    rm dashboard/.htpasswd
+    rm nginx/.htpasswd
     
     cp monitor-scripts/* /etc/monitor-scripts/   
     cp -r dashboard/* /var/dashboard/
