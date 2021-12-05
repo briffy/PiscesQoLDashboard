@@ -44,9 +44,9 @@ if id -nG admin | grep -qw "sudo"; then
     rm -rf dashboard/logs/*
     rm nginx/.htpasswd
     
-    cp monitor-scripts/* /etc/monitor-scripts/   
+    cp -r monitor-scripts/* /etc/monitor-scripts/   
     cp -r dashboard/* /var/dashboard/
-    cp systemd/* /etc/systemd/system/
+    cp -r systemd/* /etc/systemd/system/
     chmod 755 /etc/monitor-scripts/*
     chown root:www-data /var/dashboard/services/*
     chown root:www-data /var/dashboard/statuses/*
