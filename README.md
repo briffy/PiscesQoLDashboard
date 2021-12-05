@@ -56,6 +56,10 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.2.6
+  * Very very minor bug fix to the VPN display status.
+- v0.2.5
+  * Added VPN support for all you off-grid setups and people on CGNAT.
 - v0.2.4
   * Fixed bug introduced in previous release that would lock the miner update to the latest non GA version.
 
