@@ -40,8 +40,10 @@ if id -nG admin | grep -qw "sudo"; then
     chmod 755 /etc/monitor-scripts/*
     chown root:www-data /var/dashboard/services/*
     chown root:www-data /var/dashboard/statuses/*
+    chown root:www-data /var/dashboard/vpn/*
     chmod 775 /var/dashboard/services/*
     chmod 775 /var/dashboard/statuses/*
+    chmod 775 /var/dashboard/vpn/*
     chown root:root /etc/ssl/private/nginx-selfsigned.key
     chmod 600 /etc/ssl/private/nginx-selfsigned.key
     chown root:root /etc/ssl/certs/nginx-selfsigned.crt
