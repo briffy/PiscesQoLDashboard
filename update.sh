@@ -47,9 +47,11 @@ if id -nG admin | grep -qw "sudo"; then
     cp -r monitor-scripts/* /etc/monitor-scripts/   
     cp -r dashboard/* /var/dashboard/
     cp -r systemd/* /etc/systemd/system/
+    chown root:www-data /var/dashboard/vpn/*
     chmod 755 /etc/monitor-scripts/*
     chown root:www-data /var/dashboard/services/*
     chown root:www-data /var/dashboard/statuses/*
+    chmod 775 /var/dashboard/vpn/*
     chmod 775 /var/dashboard/services/*
     chmod 775 /var/dashboard/statuses/*
     chown root:www-data /var/dashboard
