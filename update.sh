@@ -10,6 +10,9 @@ fi
 
 
 if id -nG admin | grep -qw "sudo"; then
+  echo 'Updating OS packages, this could take a long, long time...' >> /var/dashboard/logs/dashboard-update.log
+  apt-get update >> /var/dashboard/logs/dashboard-update.log
+  apt-get upgrade -y >> /var/dashboard/logs/dashboard-update.log
   rm -rf /tmp/latest.tar.gz
   rm -rf /tmp/dashboardinstall
   echo 'Downloading latest release...' > /var/dashboard/logs/dashboard-update.log
@@ -62,10 +65,11 @@ if id -nG admin | grep -qw "sudo"; then
     for f in $FILES;
       do
         name=$(echo $f | sed 's/.timer//' | sed 's/systemd\///')
-        systemctl start $name.timer >> /var/dashboard/logs/dashboard-update.log
-        systemctl enable $name.timer >> /var/dashboard/logs/dashboard-update.log
-        systemctl start $name.service >> /var/dashboard/logs/dashboard-update.log
-        systemctl daemon-reload >> /var/dashboard/logs/dashboard-update.log
+        systemctl start $name.timer
+        systemctl enable $name.timer
+        systemctl start $name.service
+        
+        echo "$name enabled" >> /var/dashboard/logs/dashboard-update.log
       done
     systemctl daemon-reload
     bash /etc/monitor-scripts/pubkeys.sh
