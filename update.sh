@@ -11,8 +11,12 @@ fi
 
 if id -nG admin | grep -qw "sudo"; then
   echo 'Updating OS packages, this could take a long, long time...' >> /var/dashboard/logs/dashboard-update.log
+  echo '---------------------------------------------------------' >> /var/dashboard/logs/dashboard-update.log
   apt-get update >> /var/dashboard/logs/dashboard-update.log
   apt-get upgrade -y >> /var/dashboard/logs/dashboard-update.log
+  
+  echo 'OS Updated.  Starting dashboard installer...' >> /var/dashboard/logs/dashboard-update.log
+  echo '---------------------------------------------------------' >> /var/dashboard/logs/dashboard-update.log
   rm -rf /tmp/latest.tar.gz
   rm -rf /tmp/dashboardinstall
   echo 'Downloading latest release...' > /var/dashboard/logs/dashboard-update.log
