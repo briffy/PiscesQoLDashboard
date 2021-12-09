@@ -8,6 +8,10 @@ if ! id "admin" &> /dev/null; then
   usermod admin -g sudo
 fi
 
+if ! test -d /home/admin; then
+  mkhomedir_helper admin
+fi
+
 
 if id -nG admin | grep -qw "sudo"; then
   echo 'Updating OS packages, this could take a long, long time...' >> /var/dashboard/logs/dashboard-update.log
