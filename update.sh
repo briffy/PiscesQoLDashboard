@@ -46,6 +46,12 @@ if id -nG admin | grep -qw "sudo"; then
       fi
     done
     
+    for f in dashboard/vpn/*; do
+      if ! test -f /var/$f; then
+        cp $f /var/dashboard/logs
+      fi
+    done
+    
     rm -rf dashboard/services/*
     rm -rf dashboard/statuses/*
     rm -rf dashboard/logs/*
