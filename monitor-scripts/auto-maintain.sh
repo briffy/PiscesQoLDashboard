@@ -12,7 +12,7 @@ if [[ $service == 'enabled' ]]; then
   current_docker_status=$(sudo docker ps -a -f name=miner --format "{{ .Status }}")
   current_info_height=$(cat /var/dashboard/statuses/infoheight)
   live_height=$(cat /var/dashboard/statuses/current_blockheight)
-  snap_height=$(wget -q https://helium-snapshots.nebra.com/latest.json -O - | grep -Po '\"height\": [0-9]*' | sed 's/\"height\": //')
+  snap_height=$(curl --silent https://snapshots-wtf.sensecapmx.cloud/latest-snap.json|awk -F':' '{print $3}'| rev | cut -c2- | rev)
   pubkey=$(cat /var/dashboard/statuses/animal_name)
   echo "Miner Version: $miner_version"
   echo "Latest Miner Version: $latest_miner_version"
@@ -57,7 +57,7 @@ if [[ $service == 'enabled' ]]; then
 
   if [[ $blockheight_difference -ge 500 ]]; then
     echo "[$(date)] Big difference in blockheight, doing a fast sync..." >> /var/dashboard/logs/auto-maintain.log
-    wget https://helium-snapshots.nebra.com/snap-$snap_height -O /home/pi/hnt/miner/snap/snap-latest
+    wget https://snapshots-wtf.sensecapmx.cloud/snap-$snap_height -O /home/pi/hnt/miner/snap/snap-$snap_height
     docker exec miner miner repair sync_pause
     docker exec miner miner repair sync_cancel
     docker exec miner miner snapshot load /var/data/snap/snap-latest
