@@ -3,8 +3,8 @@ service=$(cat /var/dashboard/services/fastsync | tr -d '\n')
 
 if [[ $service == 'start' ]]; then
   echo 'running' > /var/dashboard/services/fastsync
-  snap_height=$(wget -q https://helium-snapshots.nebra.com/latest.json -O - | grep -Po '\"height\": [0-9]*' | sed 's/\"height\": //')
-  wget https://helium-snapshots.nebra.com/snap-$snap_height -O /home/pi/hnt/miner/snap/snap-latest
+  snap_height=$(curl --silent https://snapshots-wtf.sensecapmx.cloud/latest-snap.json|awk -F':' '{print $3}'| rev | cut -c2- | rev)
+  wget https://snapshots-wtf.sensecapmx.cloud/snap-$snap_height -O /home/pi/hnt/miner/snap/snap-$snap_height
   docker exec miner miner repair sync_pause
   docker exec miner miner repair sync_cancel
   docker exec miner miner snapshot load /var/data/snap/snap-latest
