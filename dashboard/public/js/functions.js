@@ -23,6 +23,10 @@ function EnableService(ServiceName)
 
 function RebootDevice()
 {
+	if (!window.confirm("Are you sure that you want to reboot the miner now?")) {
+		return;
+	}
+	
 	httpRequest = new XMLHttpRequest();
 	httpRequest.open('GET', 'RebootDevice.php', true);
 	httpRequest.send();
