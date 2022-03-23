@@ -34,7 +34,7 @@ function ResetPasswordPrompt()
 {
 	var passwordbox = document.createElement("div");
 	passwordbox.className = "closeable_prompt_overlay";
-	passwordbox.innerHTML = '<div id="closeable_prompt"><div id="prompt_title"><h2>Reset Password</h2><button type="button" onclick="ClosePrompt()" value="Close" title="Close" id="CloseButton">X</button></div><div id="prompt_body"><div id="inputs"><label for="password">Password:</label><input type="password" id="password" name="password"><br /><label for="confirm_password">Confirm Password:</label><input type="password" name="confirm_password" id="confirm_password" /></div></div><div id="prompt_footer"><button id="reset_password_button" onclick="ResetPassword()"; type="button">Submit</button></div></div>';
+	passwordbox.innerHTML = '<div id="closeable_prompt"><div id="prompt_title"><h2>Reset Password</h2><button type="button" onclick="ClosePrompt()" value="Close" title="Close" id="CloseButton">X</button></div><div id="prompt_body"><div id="inputs"><label for="password">Password:</label><input type="password" id="password" name="password" maxlength="128"><br /><label for="confirm_password">Confirm Password:</label><input type="password" name="confirm_password" id="confirm_password" maxlength="128" /></div></div><div id="prompt_footer"><button id="reset_password_button" onclick="ResetPassword()"; type="button">Submit</button></div></div>';
 	var body = document.body.appendChild(passwordbox);
 }
 
@@ -42,7 +42,7 @@ function ResetPassword()
 {
 	var password = document.getElementById("password").value;
 	var confirmpassword = document.getElementById("confirm_password").value;
-	var params = 'password='+password+'&confirmpassword='+confirmpassword;
+	var params = 'password='+encodeURIComponent(password)+'&confirmpassword='+encodeURIComponent(confirmpassword);
 	httpRequest = new XMLHttpRequest();
 	httpRequest.open('POST', 'ResetPassword.php', true);
 	httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
