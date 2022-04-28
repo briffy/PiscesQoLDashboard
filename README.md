@@ -56,6 +56,9 @@ As of v0.1.1, the dashboard now has an updater.  If you are running version v0.1
 
 
 ## Change Log ##
+- v0.2.9
+  * Hotfix to resolve issue with miner updater.
+ 
 - v0.2.8
   * Fixed a couple of bugs in auto-update.
   
