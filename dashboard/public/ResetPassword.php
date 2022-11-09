@@ -3,8 +3,8 @@ $current_users_tmp = explode("\n", file_get_contents("/var/dashboard/.htpasswd")
 $current_users = [];
 $x = 0;
 
-$clearTextPassword = trim(htmlentities(strip_tags($_POST['password'])));
-$confirmPassword = trim(htmlentities(strip_tags($_POST['confirmpassword'])));
+$clearTextPassword = trim(substr($_POST['password'],0,128));
+$confirmPassword = trim(substr($_POST['confirmpassword'],0,128));
 
 if(($clearTextPassword == $confirmPassword) && $clearTextPassword != "")
 {
