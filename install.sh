@@ -19,6 +19,7 @@ if id -nG admin; then
     cd dashboardinstall
     systemctl stop pm2-pi.service
     systemctl disable pm2-pi.service
+    
     apt-get update
     apt-get --assume-yes install nginx php-fpm php7.3-fpm pptp-linux openvpn
 
@@ -64,7 +65,10 @@ if id -nG admin; then
 
     systemctl start install-dashboard.service
 
-    echo 'Success.'
+    echo -e "\n\n\n"
+    systemctl is-active --quiet nginx && echo "Nginx is running, you can now login to : https://$(hostname -I | cut -d' ' -f1)/  " || echo "Something failed, copy all the logs and report it."
+
+    echo 'Finished script.'
   else
     echo 'No installation archive found.  No changes made.'
   fi

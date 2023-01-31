@@ -1,14 +1,18 @@
 #!/bin/bash
-service=$(cat /var/dashboard/services/miner-update | tr -d '\n')
+MinerUpdateLog="/var/dashboard/logs/miner-update.log"
+MinerUpdate="/var/dashboard/services/miner-update"
+
+service=$(cat ${MinerUpdate} | tr -d '\n')
 version=$(cat /var/dashboard/statuses/latest_miner_version | tr -d '\n')
 
+
 if [[ $service == 'start' ]]; then
-  echo 'running' > /var/dashboard/services/miner-update
-  echo 'Stopping currently running docker...' > /var/dashboard/logs/miner-update.log
-  docker stop miner >> /var/dashboard/logs/miner-update.log
+  echo 'running' > ${MinerUpdate}
+  echo 'Stopping currently running docker...' > ${MinerUpdateLog}
+  docker stop miner >> ${MinerUpdateLog}
   currentdockerstatus=$(sudo docker ps -a -f name=miner --format "{{ .Status }}")
   if [[ $currentdockerstatus =~ 'Exited' || $currentdockerstatus == '' ]]; then
-    echo 'Backing up current config...' >> /var/dashboard/logs/miner-update.log
+    echo 'Backing up current config...' >> ${MinerUpdateLog}
     currentconfig=$(sudo docker inspect miner | grep sys.config | grep -Po '"Source": ".*\/sys.config' | sed 's/"Source": "//' | sed -n '1p')
     mkdir /home/pi/hnt/miner/configs
     mkdir /home/pi/hnt/miner/configs/previous_configs
@@ -24,18 +28,18 @@ if [[ $service == 'start' ]]; then
 
     currentdockerstatus=$(sudo docker ps -a -f name=miner --format "{{ .Status }}")
     if [[ $currentdockerstatus =~ 'Up' ]]; then
-      echo 'Removing old docker firmware image to save space ...' >> /var/dashboard/logs/miner-update.log
+      echo 'Removing old docker firmware image to save space ...' >> ${MinerUpdateLog}
       docker rmi $(docker images -q quay.io/team-helium/miner:$currentversion)
-      echo 'stopped' > /var/dashboard/services/miner-update
+      echo 'stopped' > ${MinerUpdate}
       echo $version > /var/dashboard/statuses/current_miner_version
       echo "DISTRIB_RELEASE=$(echo $version | sed -e 's/miner-arm64_//' | sed -e 's/_GA//')" > /etc/lsb_release
       echo 'Update complete.' >> /var/dashboard/logs/miner-update.log
     else
-      echo 'stopped' > /var/dashboard/services/miner-update
+      echo 'stopped' > ${MinerUpdate}
       echo 'Miner docker failed to start.  Check logs to investigate.'
     fi
   else
-    echo 'stopped' > /var/dashboard/services/miner-update
-    echo 'Error: Could not stop docker.' >> /var/dashboard/logs/miner-update.log
+    echo 'stopped' > ${MinerUpdate}
+    echo 'Error: Could not stop docker.' >> ${MinerUpdateLog}
   fi
 fi
